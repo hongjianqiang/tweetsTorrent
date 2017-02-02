@@ -1,0 +1,102 @@
+/*!
+* by hongjianqiang 2017--?
+* under MIT license
+*/
+a, a:hover, a:visited, a:link, a:active {
+  text-decoration: none; }
+
+.header {
+  width: 100%;
+  padding: 0.5rem;
+  background-color: #363636;
+  border-bottom: 0.1rem solid #1c1c1c;
+  z-index: 999; }
+
+.header__href {
+  font-size: 1.8rem;
+  margin-right: 1rem; }
+
+.regist {
+  width: 30rem; }
+
+.login {
+  width: 30rem; }
+
+.login__keyPair {
+  height: 15rem;
+  margin-bottom: 1rem;
+  border-radius: 1rem;
+  border: 3px #b5b5b5 dashed; }
+
+.login__keyPair__h6--noMargin {
+  margin: 0; }
+
+.sendTweets {
+  padding-top: 3rem; }
+
+.sendTweets__input {
+  height: 8rem;
+  margin-bottom: 0; }
+
+.sendTweets__attach {
+  color: #eb7350;
+  margin-right: 1rem; }
+
+.sendTweets__popup {
+  top: 3.2rem; }
+
+.sendTweets__popup__items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 30rem;
+  height: 30rem;
+  position: relative;
+  padding: 1rem;
+  background-color: #fff;
+  border: 0.1rem solid #ccc;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 20px 1px rgba(0, 0, 0, 0.2); }
+
+.sendTweets__popup__items:before,
+.sendTweets__popup__items:after {
+  content: ' ';
+  position: absolute;
+  left: 100%;
+  border: solid transparent; }
+
+.sendTweets__popup__items:after {
+  width: 0;
+  height: 0;
+  top: -1.9rem;
+  left: 2rem;
+  border-width: 12px;
+  border-bottom: 12px solid #fff; }
+
+.sendTweets__popup__items:before {
+  width: 0;
+  height: 0;
+  top: -2rem;
+  left: 2rem;
+  border-width: 12px;
+  border-bottom: 12px solid #ccc; }
+
+.sendTweets__popup__item {
+  width: 30%;
+  height: 30%;
+  border: 0.2rem dashed #ccc;
+  color: #ccc;
+  font-size: 10rem;
+  font-weight: bold; }
+
+.sendTweets__popup__close--all {
+  top: -1.4rem;
+  right: -0.9rem;
+  font-size: 3rem;
+  color: #888; }
+
+.sendTweets__popup__close--this {
+  font-size: 2rem;
+  top: 0;
+  right: 0.1rem; }

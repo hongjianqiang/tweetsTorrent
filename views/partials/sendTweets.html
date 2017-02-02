@@ -1,0 +1,79 @@
+<section class="sendTweets js-sendTweets">
+  <div class="between">
+    <span>有什么新鲜事想告诉大家？</span>
+    <span>已输入3字</span>
+  </div>
+
+  <textarea class="w100p sendTweets__input"
+    v-model="text">
+  </textarea>
+
+  <div class="rel between">
+    <div class="vCenter">
+      <span class="dn sendTweets__attach">
+        <span class="cp">
+          <i class="fa fa-smile-o" aria-hidden="true"></i> 表情
+        </span>
+      </span>
+      <span class="sendTweets__attach">
+        <span class="cp"
+          @click="showPicDialog">
+          <i class="fa fa-picture-o" aria-hidden="true"></i> 图片
+        </span>
+      </span>
+      <span class="sendTweets__attach">
+        <span class="cp"
+          @click="showVideoDialog">
+          <i class="fa fa-video-camera" aria-hidden="true"></i> 视频
+        </span>
+      </span>
+      <span class="sendTweets__attach">
+        <span class="cp"
+          @click="showFilesDialog">
+          <i class="fa fa-file-archive-o" aria-hidden="true"></i> 文件
+        </span>
+      </span>
+    </div>
+
+    <div class="vCenter">
+      <button class="mb0 button button-submit"
+        @click="release">
+        发布
+      </button>
+    </div>
+
+    <div class="abs sendTweets__popup"
+      v-show="popup"
+      v-bind:style="popupStyle">
+      <!-- 弹窗 -->
+      <div class="sendTweets__popup__items">
+        <!-- 第 1 ~ 9 个 -->
+        <div class="rel center sendTweets__popup__item"
+          v-for="n in 9"
+          v-bind:data-type="popupType"
+          @click="selectFile(n-1, $event)">
+
+          <img class="js-imgPrevs" v-show="'imgs'===popupType">
+          <i class="fa fa-file-video-o" aria-hidden="true" v-show="video[n-1].name && 'video'===popupType"></i>
+          <i class="fa fa-file-archive-o" aria-hidden="true" v-show="files[n-1].name && 'files'===popupType"></i>
+
+          <i class="abs fa fa-window-close sendTweets__popup__close--this"
+            @click="delThisSelect(n-1, popupType)"
+            v-show="(imgs[n-1].name && 'imgs'===popupType)||
+              (video[n-1].name && 'video'===popupType)||
+              (files[n-1].name && 'files'===popupType)">
+          </i>
+        </div>
+      </div>
+      <img id='js-imgPrev' class="dn">
+      <input class="dn js-imgs" type="file" v-bind:accept="acceptFileType.imgs">
+      <input class="dn js-video" type="file" v-bind:accept="acceptFileType.video">
+      <input class="dn js-files" type="file" v-bind:accept="acceptFileType.files">
+      <i class="abs cp fa fa-times sendTweets__popup__close--all"
+        aria-hidden="true"
+        @click="closeDialog">
+        <!-- 关闭弹窗 -->
+      </i>
+    </div>
+  </div>
+</section>

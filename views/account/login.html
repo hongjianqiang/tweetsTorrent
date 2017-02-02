@@ -1,0 +1,22 @@
+<% include('../partials/header') %>
+
+<div class="full center bggrey91">
+  <div class="login js-login">
+    <h4>已有密钥文件？ 登录</h4>
+
+    <div class="row">
+      <div class="center login__keyPair js-login__keyPair">
+        <h6 class="fsi cgrey31 login__keyPair__h6--noMargin" :class="classObj.msg">{{msg}}</h6>
+      </div>
+    </div>
+
+    <div class="row">
+      <input type="password" placeholder="密码" class="u-pull-left"
+        v-model="password">
+      <button class="button button-primary u-pull-right"
+        @click="method_login">
+        登录
+      </button>
+    </div>
+  </div>
+</div>

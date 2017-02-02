@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>tweetsTorrent - 一个基于BitTorrent内容分发协议的微博</title>
+
+  <meta name="description" content="A micro-blog based on Torrent protocol.">
+  <meta name="author" content="Qiang <569250030@qq.com>">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="icon" type="image/png" href="/public/img/favicon.png">
+
+  <link href="/public/css/normalize.css" rel="stylesheet">
+  <link href="/public/css/skeleton.css" rel="stylesheet">
+  <link href="/public/css/font-awesome.min.css" rel="stylesheet">
+  <link href="/public/css/lib.css" rel="stylesheet">
+__{CascadingStyleSheetsResource}__
+</head>
+
+<body style="display: none;">
+  <div id="app" style="width:100%;height:100%;position:relative;">
+__{content}__
+  </div>
+
+<script src="/public/js/lib/axios.min.js"></script>
+<script src="/public/js/lib/vue.min.js"></script>
+<script src="/public/js/lib/helper.js"></script>
+__{JavaScriptResource}__
+<script>
+  setTimeout(function(){
+    // 隐藏未编译的Mustache标签直到vue实例准备完毕
+    document.getElementsByTagName('body')[0].style.display = '';
+  }, 0);
+</script>
+</body>
+</html>

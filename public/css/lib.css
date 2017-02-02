@@ -1,0 +1,163 @@
+@charset "UTF-8";
+/*!
+* by hongjianqiang(.com) 2017-?
+* under MIT license
+*/
+/* ---------------------single CSS----------------------- */
+/* display */
+.dn {
+  display: none; }
+
+.di {
+  display: inline; }
+
+.db {
+  display: block; }
+
+.dib {
+  display: inline-block; }
+
+.df, .center, .hCenter, .vCenter, .between, .around {
+  display: flex;
+  display: -webkit-flex; }
+
+/* position */
+.rel {
+  position: relative; }
+
+.abs {
+  position: absolute; }
+
+.fixed {
+  position: fixed; }
+
+/* cursor */
+.cp {
+  cursor: pointer; }
+
+/* font */
+.fsi {
+  font-style: italic; }
+
+/* margin */
+.mb0 {
+  margin-bottom: 0; }
+
+/* padding */
+.pad1 {
+  padding: 1rem; }
+
+/* percent width value */
+.w10p {
+  width: 10%; }
+
+.w20p {
+  width: 20%; }
+
+.w25p {
+  width: 25%; }
+
+.w50p {
+  width: 50%; }
+
+.w75p {
+  width: 75%; }
+
+.w100p {
+  width: 100%; }
+
+/* view height value */
+.h100vh {
+  height: 100vh; }
+
+/* color */
+.cgrey11 {
+  color: #1c1c1c; }
+
+.cgrey21 {
+  color: #363636; }
+
+.cgrey31 {
+  color: #4f4f4f; }
+
+.cgrey41 {
+  color: #696969; }
+
+.cgrey51 {
+  color: #828282; }
+
+.cgrey61 {
+  color: #9c9c9c; }
+
+.cgrey71 {
+  color: #b5b5b5; }
+
+.cgrey81 {
+  color: #cfcfcf; }
+
+.cgrey91 {
+  color: #e8e8e8; }
+
+/* background */
+.bggrey11 {
+  background: #1c1c1c; }
+
+.bggrey21 {
+  background: #363636; }
+
+.bggrey31 {
+  background: #4f4f4f; }
+
+.bggrey41 {
+  background: #696969; }
+
+.bggrey51 {
+  background: #828282; }
+
+.bggrey61 {
+  background: #9c9c9c; }
+
+.bggrey71 {
+  background: #b5b5b5; }
+
+.bggrey81 {
+  background: #cfcfcf; }
+
+.bggrey91 {
+  background: #e8e8e8; }
+
+/* ------------------- multiply CSS ------------------ */
+/* 垂直水平居中 */
+.center {
+  justify-content: center;
+  align-items: center; }
+
+/* 水平居中 */
+.hCenter {
+  justify-content: center; }
+
+/* 垂直居中 */
+.vCenter {
+  align-items: center; }
+
+/* 两端对齐 */
+.between {
+  justify-content: space-between; }
+
+/* 间隔平均分 */
+.around {
+  justify-content: space-around; }
+
+/* 充满空间 */
+.full {
+  width: 100%;
+  height: 100%; }
+
+/* 按钮禁用 */
+.disabled {
+  outline: 0 none;
+  cursor: default !important;
+  opacity: .4;
+  filer: alpha(opacity=40);
+  -ms-pointer-events: none;
+  pointer-events: none; }

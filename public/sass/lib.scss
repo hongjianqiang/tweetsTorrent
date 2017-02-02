@@ -1,0 +1,86 @@
+/*!
+* by hongjianqiang(.com) 2017-?
+* under MIT license
+*/
+
+@import "config";
+
+/* ---------------------single CSS----------------------- */
+/* display */
+.dn{display:none;}
+.di{display:inline;}
+.db{display:block;}
+.dib{display:inline-block;}
+.df{display:flex;display:-webkit-flex;}
+/* position */
+.rel{position:relative;}
+.abs{position:absolute;}
+.fixed{position:fixed;}
+/* cursor */
+.cp{cursor:pointer;}
+/* font */
+.fsi{font-style:italic;}
+/* margin */
+.mb0{margin-bottom:0;}
+/* padding */
+.pad1{padding:1rem;}
+/* percent width value */
+.w10p{width:10%;}
+.w20p{width:20%;}
+.w25p{width:25%;}
+.w50p{width:50%;}
+.w75p{width:75%;}
+.w100p{width:100%;}
+/* view height value */
+.h100vh{height:100vh;}
+/* color */
+@each $k, $v in $color {
+  .c#{$k} {color:$v}
+}
+/* background */
+@each $k, $v in $color {
+  .bg#{$k} {background:$v}
+}
+
+
+/* ------------------- multiply CSS ------------------ */
+/* 垂直水平居中 */
+.center{
+  @extend .df;
+  justify-content:center;
+  align-items:center;
+}
+/* 水平居中 */
+.hCenter{
+  @extend .df;
+  justify-content:center;
+}
+/* 垂直居中 */
+.vCenter{
+  @extend .df;
+  align-items:center;
+}
+/* 两端对齐 */
+.between{
+  @extend .df;
+  justify-content:space-between;
+}
+/* 间隔平均分 */
+.around{
+  @extend .df;
+  justify-content:space-around;
+}
+/* 充满空间 */
+.full{
+  width:100%;
+  height:100%;
+}
+/* 按钮禁用 */
+.disabled{
+  outline:0 none;
+  cursor:default!important;
+  opacity:.4;
+  filer:alpha(opacity=40);
+  -ms-pointer-events:none;
+  pointer-events:none;
+}
