@@ -4,7 +4,7 @@
   var template        = require('art-template/node/template-native.js');
   var templateHelper  = require('./my_modules/templateHelper');
   var logger          = require('./my_modules/logHelper.js');
-  var authorize       = require('./my_modules/authorize.js');
+  var auth            = require('./my_modules/auth.js');
   var common          = require('./my_modules/common.js');
   var webtorrentModel = require('./models/webtorrentModel.js');
   var dhtModel        = require('./models/dhtModel.js');
@@ -44,7 +44,7 @@
     saveUninitialized: false,
     secret: randomStr
   }));
-  app.use(authorize);
+  app.use(auth);
   app.use(bodyParser.urlencoded({extended: false}));
   app.use(bodyParser.json());
 

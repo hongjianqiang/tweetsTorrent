@@ -1,2 +1,2 @@
 # tweetsTorrent
-A micro-blog based on Torrent protocol.
+A micro-blog based on torrent protocol.
