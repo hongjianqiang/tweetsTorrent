@@ -2,6 +2,9 @@
   'use strict';
 
   var Data = {
+    releaseStyle: {
+      'disabled': false
+    },
     popup: false,
     popupStyle: {
       'left': '0'
@@ -179,33 +182,50 @@
           if (file.name) formData.append(i+'_file', file.file);
         });
 
+        self.releaseStyle.disabled = true;
         axios.post('/api/sendTweets', formData)
           .then(function(resp) {
-            var imgPrevs  = document.getElementsByClassName('js-imgPrevs');
+            if (resp.data.success) {
+              var imgPrevs  = document.getElementsByClassName('js-imgPrevs');
 
-            for (var i=0; i<9; i++) {
-              self.imgs[i].name   = null;
-              self.imgs[i].objUrl = null;
-              self.imgs[i].file   = null;
+              for (var i=0; i<9; i++) {
+                self.imgs[i].name   = null;
+                self.imgs[i].objUrl = null;
+                self.imgs[i].file   = null;
 
-              self.video[i].name   = null;
-              self.video[i].objUrl = null;
-              self.video[i].file   = null;
+                self.video[i].name   = null;
+                self.video[i].objUrl = null;
+                self.video[i].file   = null;
 
-              self.files[i].name   = null;
-              self.files[i].objUrl = null;
-              self.files[i].file   = null;
+                self.files[i].name   = null;
+                self.files[i].objUrl = null;
+                self.files[i].file   = null;
 
-              imgPrevs[i].removeAttribute('src');
-              imgPrevs[i].removeAttribute('style');
+                imgPrevs[i].removeAttribute('src');
+                imgPrevs[i].removeAttribute('style');
+              }
+
+              self.text = '';
+              self.popup = false;
             }
 
-            self.text = '';
-            self.popup = false;
-            console.log(resp.data);
+            self.releaseStyle.disabled = false;
           });
       }
     }
+  });
+
+  var socket = io(window.location.origin);
+
+  socket.on('/api/sendTweets/result', function(data) {
+    var msg = '';
+
+    msg += '<h5 class="mb0">发布成功！</h5>';
+    msg += '<h6 class="mb0">Hash: ' + data.infoHash + '</h6>';
+    msg += '<h6 class="mb0">Peers: ' + data.numPeers + '</h6>';
+
+    console.log(data);
+    notie.alert('success', msg, 3);
   });
 
   window.Data = Data;

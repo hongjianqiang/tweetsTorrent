@@ -13,6 +13,7 @@
   var bodyParser      = require('body-parser');
   var socketIO        = require('socket.io');
   var express         = require('express');
+  var events          = require('events');
   var http            = require('http');
   var path            = require('path');
 
@@ -20,6 +21,9 @@
   var server    = http.Server(app);
   var io        = socketIO(server);
   var randomStr = ed.createSeed().toString('hex');
+
+  // 设置同一个指定事件，最多可以绑定的事件处理函数的个数。
+  events.EventEmitter.prototype._maxListeners = 99;
 
   logger.init(path.join(__dirname, 'logs'));
   dhtModel.init(io);

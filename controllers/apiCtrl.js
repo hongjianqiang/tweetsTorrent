@@ -69,9 +69,13 @@
     helper.checkAndCreateDir(form.uploadDir);
     form.parse(req, function(err, fields, files) {
       // if(err) return res.redirect(303, '/error');
-      dhtModel.releaseTweet(fields, files, '/api/sendTweets');
 
-      res.json({success: true});
+      if (fields.text || !helper.objectIsEmpty(files)) {
+        dhtModel.releaseTweet(fields, files, '/api/sendTweets/result', form.uploadDir);
+        res.json({success: true});
+      } else {
+        res.json({success: false});
+      }
     });
   });
 

@@ -19,7 +19,7 @@
     dht: null,
     dhtReady: false,
     nodesFile: path.join(__dirname, 'config', 'nodes.json'),
-    releaseTweet: function(fields, files, eventName) {
+    releaseTweet: function(fields, files, eventName, uploadDir) {
       var self    = this;
       var ext     = '';
       var dirname = '';
@@ -34,7 +34,7 @@
       };
 
       tweet.text = fields.text;
-      logger.look(fields);
+      logger.look(tweet);
 
       for (var key in files) {
         hash    = files[key].hash;
@@ -60,7 +60,7 @@
       }
 
       var config;
-      var configPath = path.join(dirname, '..', 'config.json');
+      var configPath = path.join(uploadDir, '..', 'config.json');
       if (fs.existsSync(configPath)) {
         var data = fs.readFileSync(configPath, 'utf-8').toString();
 
@@ -77,11 +77,11 @@
         }
       }
 
-      fs.writeFile(path.join(dirname, 'tweet.json'),
+      fs.writeFile(path.join(uploadDir, 'tweet.json'),
         JSON.stringify(tweet),
         function(err) {
           if (err) throw err;
-          webtorrent.seed(path.join(dirname), eventName);
+          webtorrent.seed(path.join(uploadDir), eventName);
         });
     },
     addNodesFromFiles: function(pathname) {

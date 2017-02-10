@@ -18,7 +18,10 @@
     };
 
     var resource = [
+      '/public/css/notie.min.css',
       '/public/css/common.css',
+      '/public/js/lib/socket.io.min.js',
+      '/public/js/lib/notie.min.js',
       '/public/js/partials/sendTweets.js'
     ];
 
