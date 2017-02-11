@@ -51,6 +51,16 @@
     res.json(dhtModel.getNodes());
   });
 
+  router.get('/api/bittorrent-dht/put', function(req, res, next) {
+    var data = {};
+
+    data.text = req.query.torrentId;
+    data.publicKey = req.session.keyPair.publicKey;
+    data.secretKey = req.session.keyPair.secretKey;
+
+    res.json(dhtModel.put(data, '/api/bittorrent-dht/put/result'));
+  });
+
   router.post('/api/bittorrent-dht/regist', function(req, res, next) {
     req.body.text = req.body.text || 'Hello，我加入tweetsTorrent了！ :)';
 

@@ -224,8 +224,35 @@
     msg += '<h6 class="mb0">Hash: ' + data.infoHash + '</h6>';
     msg += '<h6 class="mb0">Peers: ' + data.numPeers + '</h6>';
 
-    console.log(data);
-    notie.alert('success', msg, 3);
+    var torrentId = '';
+    if (data.magnetURI.length<900) {
+      torrentId = data.magnetURI;
+    } else {
+      torrentId = data.infoHash;
+    }
+
+    axios.get('/api/bittorrent-dht/put', {
+        params: {
+          torrentId: torrentId
+        }
+      })
+      .then(function(resp) {
+        if (resp.data.success) {
+          console.log(data);
+          notie.alert('success', msg, 3);
+        }
+      });
+  });
+
+  socket.on('/api/bittorrent-dht/put/result', function(data) {
+    if (data.announce) {
+      // 成功广播到DHT网络中
+    } else {
+      // 再次广播torrentId到DHT网络中
+      setTimeout(function(){
+
+      }, 10*1000);
+    }
   });
 
   window.Data = Data;

@@ -173,6 +173,7 @@
 
           results.uid = hash.toString('hex');
           results.uidOrigin = hash.toJSON().data;
+          results.text = data.text;
           results.announce = true;
           if (err) results.announce = false;
 
