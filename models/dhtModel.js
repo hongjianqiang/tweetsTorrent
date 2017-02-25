@@ -178,11 +178,13 @@
           if (err) results.announce = false;
 
           if(results.announce) {
+            // 成功广播到DHT网络
             var tmp = self.socket && self.socket.emit(eventName, results);
           } else {
+            // 再次广播到DHT网络
             setTimeout(function(){
               self.put(data, eventName);
-            }, 10*1000);
+            }, helper.randomInt(5, 15)*1000);
           }
         });
       } catch(e) {

@@ -89,5 +89,9 @@
     });
   });
 
+  router.get('/api/getTweets', function(req, res, next) {
+    
+  });
+
   module.exports = router;
 })();

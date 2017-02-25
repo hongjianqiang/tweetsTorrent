@@ -128,7 +128,7 @@
 
           if (resp.data.success) {
             if (url) {
-              helper.action(url);
+              helper.action(url, {uid: self.keyPair.uid});
             } else {
               helper.action('/index', {uid: self.keyPair.uid});
             }

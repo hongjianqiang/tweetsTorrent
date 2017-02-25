@@ -248,22 +248,12 @@
     console.log(data);
     if (data.announce) {
       // 成功广播到DHT网络中
-      console.log('成功广播到DHT网络中');
+      console.log('已广播到DHT网络中');
       var msg = '';
 
       msg += '<h5 class="mb0">已广播到DHT网络</h5>';
       msg += '<h6 class="mb0">Hash: ' + data.uid + '</h6>';
       notie.alert('success', msg, 3);
-    } else {
-      // 再次广播torrentId到DHT网络中
-      // setTimeout(function(){
-      //   console.log('再次广播torrentId到DHT网络中');
-      //   axios.get('/api/bittorrent-dht/put', {
-      //     params: {
-      //       torrentId: Data.torrentId
-      //     }
-      //   });
-      // }, 10*1000);
     }
   });
 

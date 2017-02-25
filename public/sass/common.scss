@@ -37,7 +37,8 @@ a, a:hover, a:visited, a:link, a:active {
 }
 
 .sendTweets {
-  padding-top: 3rem;
+  background:#fff;
+  border-radius:0.5rem;
 }
 .sendTweets__input {
   height: 8rem;
@@ -106,4 +107,26 @@ a, a:hover, a:visited, a:link, a:active {
   font-size: 2rem;
   top: 0;
   right: 0.1rem;
+}
+
+.tweets{
+  background:#fff;
+  border-radius:0.5rem;
+}
+.tweets__tweet__face{
+  width:10rem;
+  height:10rem;
+  margin-right:1rem;
+}
+.tweets__tweet__name{
+  color:#000;
+  font-weight:bold;
+}
+.tweets__tweet__media-type{
+  list-style: none;
+
+  li{
+    margin-bottom:0.5rem;
+    padding:0;
+  }
 }

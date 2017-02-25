@@ -1,12 +1,21 @@
 <% include('./partials/header') %>
 
+<div style="height:3rem;"></div>
+
 <div class="full hCenter bggrey91 index js-index">
   <div class="w20p bggrey81"></div>
 
   <div class="w50p bggrey71">
-    <div class="pad1">
+    <div style="height:2rem;"></div>
+
+    <div class="mb1">
       <!-- 发布微博 -->
       <% include('./partials/sendTweets') %>
+    </div>
+
+    <div class="mb1">
+      <!-- 微博列表 -->
+      <% include('./partials/tweets') %>
     </div>
   </div>
 
