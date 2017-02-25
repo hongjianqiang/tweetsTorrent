@@ -177,7 +177,13 @@
           results.announce = true;
           if (err) results.announce = false;
 
-          var tmp = self.socket && self.socket.emit(eventName, results);
+          if(results.announce) {
+            var tmp = self.socket && self.socket.emit(eventName, results);
+          } else {
+            setTimeout(function(){
+              self.put(data, eventName);
+            }, 10*1000);
+          }
         });
       } catch(e) {
         return {success: false};
